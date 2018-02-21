@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Access-Control-Allow-Origin" content="*" />
+<meta http-equiv="Access-Control-Allow-Headers" content="Content-Type" />
+<meta http-equiv="Access-Control-Allow-Methods" content="GET" />
+<style>
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: light blue;
+}
+
+li {
+    float: left;
+}
+
+li button {
+    display: inline-block;
+    color: black;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li button:hover {
+    background-color: white;
+}
+</style>
+<script>
+
+function getDetails(type){
+
+	jQuery.support.cors = true;
+	  
+			$
+					.ajax({
+						type : "POST",
+						async:true,
+						xhrFields: { withCredentials: true }, 
+						crossDomain: true, 
+						
+						url : "getmeetupinfo?data="+type,
+						
+						
+						success : function(data) {
+			//alert("success");
+			console.log(data);
+     },
+     error : function(data) {
+			//alert("success");
+			console.log(data);
+  }
+				     }); 
+}
+
+</script>
+</head>
+<body>
+
+<ul>
+  <li><button class="event" onclick="getDetails('2/events')">Event</button></li>
+  <li><button class="city" onclick="getDetails('2/cities')">City</button></li>
+  <li><button class="category" onclick="getDetails('2/categories')">Categories</button></li>
+  <li><button class="members" onclick="getDetails('2/members')">Members</button></li>
+   <li><button class="status" onclick="getDetails('status')">Status</button></li>
+    <li><button class="profile" onclick="getDetails('2/profile')">Profile</button></li>
+  
+  
+  
+</ul>
+
+
+Response from MeetupAPI:
+<div id="data"></div>
+
+</body>
+</html>

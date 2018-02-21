@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+
+<form id = "form1" action="compile2" method="post">
+    
+   
+    <input type="submit" value="place order"/>
+</form>
+
+<script type="text/javascript">
+
+    function formSubmit() {
+        
+        var form = document.getElementById("form1");
+        var str = "savefile?content=" + $("#contentValue1").html();
+        form.action = "savefile?content=" + $("#contentValue1").html();
+        form.submit();
+    }
+</script>
+</html>
